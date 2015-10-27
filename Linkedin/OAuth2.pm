@@ -122,8 +122,13 @@ if ($result->{emailAddress}) {
 
 	http://developer.linkedin.com/documents
 
+=head1 AUTHOR
+
+Asaf Klibansky
+
+discobeta@gmail.com
+
 =head1 METHODS
-=cut
 
 
 =head2 authorization_code_url( { redirect_uri => '...', scope => '...'} )
