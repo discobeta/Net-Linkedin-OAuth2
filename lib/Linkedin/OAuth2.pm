@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use JSON::Any;
 use LWP::UserAgent;
-use URI::Escape;
+#use URI::Escape;
 use Carp 'confess';
 use XML::Hash;
 use Digest::MD5 'md5_hex';

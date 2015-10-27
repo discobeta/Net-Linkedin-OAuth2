@@ -1,0 +1,6 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/Linkedin-OAuth2.t
+lib/Linkedin/OAuth2.pm
