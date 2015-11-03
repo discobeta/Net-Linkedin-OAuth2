@@ -52,7 +52,7 @@ if (param('code')) {
 	# and catch an error back from linked in
 	if (param('error')) {
 	    # handle the error
-	    # if the user denied, redirect to try again...
+	    # if the user denied, redirect to try again... 
 	}
 	
 ```
