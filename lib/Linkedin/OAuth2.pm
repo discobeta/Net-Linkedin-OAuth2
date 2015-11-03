@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use JSON::Any;
 use LWP::UserAgent;
-#use URI::Escape;
 use Carp 'confess';
 use XML::Hash;
 use Digest::MD5 'md5_hex';
@@ -262,7 +261,7 @@ I<url> is the linkedin API url to access. See
 I<token> is a valid token that you retrieved from a successful 
 linkedin authentication.
 
-B<Returns:> This will create an interface to the linked in API
+B<Returns:> This will return a scalar with the results from a given url
 
 =back
 
