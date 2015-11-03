@@ -1,4 +1,4 @@
-package Linkedin::OAuth2;
+package Net::Linkedin::OAuth2;
 
 use strict;
 use warnings;
@@ -20,20 +20,20 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.3';
 
 
 =head1 NAME
 
-Linkedin::OAuth2 - An easy way to authenticate users via LinkedIn.
+Net::Linkedin::OAuth2 - An easy way to authenticate users via LinkedIn.
 
 =head1 VERSION
 
-version 0.2
+version 0.3
 
 =head1 SYNOPSIS
 
-my $linkedin = Linkedin::OAuth2->new( key => 'your-app-key', secret	=> 'your-app-secret');
+my $linkedin = Net::Linkedin::OAuth2->new( key => 'your-app-key', secret	=> 'your-app-secret');
 	                                  
 =head2 get authorization url({ redirect_uri => 'http://localhost:3000/user/linkedin', scope => ['r_basicprofile','rw_groups','r_emailaddress']})
 
@@ -67,7 +67,7 @@ if ($result->{emailAddress}) {
 
 # Or here is an entire login logic or recipe:
 
-	my $linkedin = Linkedin::OAuth2->new( key => 'your-app-key',
+	my $linkedin = Net::Linkedin::OAuth2->new( key => 'your-app-key',
 	                                   secret => 'your-app-secret');
 	
 	
