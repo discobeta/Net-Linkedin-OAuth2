@@ -3,10 +3,10 @@ use strict;
 use warnings;
 use CPAN;
 
-my @required = qw(XML::Hash JSON::Any Digest::MD5 LWP::UserAgent Carp);
-for (@required) {
-	CPAN::install($_);
-}
+#my @required = qw(XML::Hash JSON::Any Digest::MD5 LWP::UserAgent Carp);
+#for (@required) {
+#	CPAN::install($_);
+#}
 
 use 5.008008;
 
