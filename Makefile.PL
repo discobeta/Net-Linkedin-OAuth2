@@ -1,61 +1,49 @@
-
 use strict;
 use warnings;
-use CPAN;
 
-#my @required = qw(XML::Hash JSON::Any Digest::MD5 LWP::UserAgent Carp);
-#for (@required) {
-#	CPAN::install($_);
-#}
+use inc::Module::Install;
 
-use 5.008008;
+name          'Net-Linkedin-OAuth2';
+author        'Asaf Klibansky <discobeta@gmail.com>';
+perl_version  '5.006';
+all_from      'lib/Net/Linkedin/OAuth2.pm';
 
-use ExtUtils::MakeMaker 6.30;
+requires       'XML::Hash'  => '0';
+requires       'JSON::Any'  => '0';
+requires       'Digest::MD5'  => '0';
+requires       'LWP::UserAgent'  => '0';
+requires       'Carp'  => '0';
 
-my %WriteMakefileArgs = (
-  "ABSTRACT" => "An easy way to authenticate users via LinkedIn",
-  "AUTHOR" => "Asaf Klibansky <discobeta\@gmail.com>",
-  "BUILD_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.42",
-    #"Test::More" => "0.47"
-  },
-  "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.42"
-  },
-  "DISTNAME" => "Net-Linkedin-OAuth2",
-  "LICENSE" => "perl",
-  "NAME" => "Net::Linkedin::OAuth2",
-  "PREREQ_PM" => {
-    'XML::Hash' => 0,
-    'JSON::Any'	=>	0,
-    'Digest::MD5'	=>	0,
-    'LWP::UserAgent'	=>	0,
-    'Carp'	=>	0,
-  },
-  "VERSION" => "0.03",
-  "test" => {
-    "TESTS" => "t/*.t"
-  }
-);
+test_requires 'Test::Harness'       => '3.13';
+test_requires 'Test::More'          => '0.86';
+test_requires 'autodie'             => '0';
 
+# Remove some extra test files
+clean_files( qw{ t/Foo } );
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
-}
+# Test configure_requires support (also needed by WriteMyMeta)
+configure_requires 'YAML::Tiny' => '1.33';
 
-delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
+# Makes the recursive test script run
+# (to test recursive test support)
+tests_recursive;
 
-WriteMakefile(%WriteMakefileArgs);
+# This is a normal CPAN module
+install_as_cpan;
+
+# Normally this shouldn't be done in here, it should be done
+# by release automation. This is mostly for testing reasons.
+repository 'https://github.com/discobeta/Net-Linkedin-OAuth2.git';
+
+# All of our dependencies are the same on all platforms
+dynamic_config 0;
+
+add_metadata x_contributors => [ # manually added, from git shortlog -e -s -n
+    'Asaf Klibansky <discobeta@gmail.com>'
+];
+
+WriteAll;
+
 
 
 
