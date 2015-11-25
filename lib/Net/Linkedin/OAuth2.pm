@@ -20,7 +20,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.3';
+our $VERSION = '0.32';
 
 
 =head1 NAME

@@ -23,7 +23,7 @@
 #     NO_META => q[1]
 #     PREREQ_PM => { Carp=>q[0], Digest::MD5=>q[0], ExtUtils::MakeMaker=>q[6.59], JSON::Any=>q[0], LWP::UserAgent=>q[0], Test::Harness=>q[3.13], Test::More=>q[0.86], XML::Hash=>q[0], YAML::Tiny=>q[1.33], autodie=>q[0] }
 #     TEST_REQUIRES => {  }
-#     VERSION => q[0.3]
+#     VERSION => q[0.32]
 #     VERSION_FROM => q[lib/Net/Linkedin/OAuth2.pm]
 #     clean => { FILES=>q[t/Foo] }
 #     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
@@ -67,11 +67,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Net::Linkedin::OAuth2
 NAME_SYM = Net_Linkedin_OAuth2
-VERSION = 0.3
+VERSION = 0.32
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_3
+VERSION_SYM = 0_32
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.3
+XS_VERSION = 0.32
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -269,7 +269,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Net-Linkedin-OAuth2
-DISTVNAME = Net-Linkedin-OAuth2-0.3
+DISTVNAME = Net-Linkedin-OAuth2-0.32
 
 
 # --- MakeMaker macro section:
@@ -484,7 +484,7 @@ realclean purge ::  clean realclean_subdirs
 	- $(RM_F) \
 	  $(FIRST_MAKEFILE) $(MAKEFILE_OLD) 
 	- $(RM_RF) \
-	  MYMETA.yml $(DISTVNAME) 
+	  $(DISTVNAME) MYMETA.yml 
 
 
 # --- MakeMaker metafile section:

@@ -32,6 +32,6 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: https://github.com/discobeta/Net-Linkedin-OAuth2.git
-version: '0.3'
+version: '0.32'
 x_contributors:
   - 'Asaf Klibansky <discobeta@gmail.com>'

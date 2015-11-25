@@ -17,6 +17,7 @@
 #     CONFIGURE_REQUIRES => {  }
 #     DISTNAME => q[Net-Linkedin-OAuth2]
 #     INSTALLDIRS => q[site]
+#     LICENSE => q[perl]
 #     MIN_PERL_VERSION => q[5.006]
 #     NAME => q[Net::Linkedin::OAuth2]
 #     NO_META => q[1]
@@ -481,7 +482,7 @@ realclean_subdirs :
 # Delete temporary files (via clean) and also delete dist files
 realclean purge ::  clean realclean_subdirs
 	- $(RM_F) \
-	  $(MAKEFILE_OLD) $(FIRST_MAKEFILE) 
+	  $(FIRST_MAKEFILE) $(MAKEFILE_OLD) 
 	- $(RM_RF) \
 	  MYMETA.yml $(DISTVNAME) 
 
