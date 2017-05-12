@@ -236,13 +236,9 @@ sub new {
 		params => %args,
 	);
     $self->{ params }  = %args;
-    $self->{ key }     = %args->{'key'};
-    $self->{ secret }  = %args->{'secret'};
-    my @e;
-    for (my $n=0; $n <= 2; $n++) {
-        push @e, %args->{'scope'}[$n];
-    }
-    $self->{ scope }   = join('+',@e);
+    $self->{ key }     = $args{key};
+    $self->{ secret }  = $args{secret};
+    $self->{ scope }   = join('+',@{$args{scope}});
     return $self;
 }
 
