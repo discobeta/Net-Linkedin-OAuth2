@@ -276,8 +276,8 @@ sub request {
     }
     my $r = $self->{class}->get($url);
     if (!$r->is_success){
-        my $j = XML::Hash->new();
-        my $error = $j->fromXMLStringtoHash($r->content());
+        my $j = JSON::Any->new;
+        my $error = $j->jsonToObj( $r->content() );
     }
     my $j = JSON::Any->new;
     return $j->jsonToObj( $r->content() );
