@@ -236,13 +236,9 @@ sub new {
 		params => %args,
 	);
     $self->{ params }  = %args;
-    $self->{ key }     = %args->{'key'};
-    $self->{ secret }  = %args->{'secret'};
-    my @e;
-    for (my $n=0; $n <= 2; $n++) {
-        push @e, %args->{'scope'}[$n];
-    }
-    $self->{ scope }   = join('+',@e);
+    $self->{ key }     = $args{key};
+    $self->{ secret }  = $args{secret};
+    $self->{ scope }   = join('+',@{$args{scope}});
     return $self;
 }
 
@@ -280,8 +276,8 @@ sub request {
     }
     my $r = $self->{class}->get($url);
     if (!$r->is_success){
-        my $j = XML::Hash->new();
-        my $error = $j->fromXMLStringtoHash($r->content());
+        my $j = JSON::Any->new;
+        my $error = $j->jsonToObj( $r->content() );
     }
     my $j = JSON::Any->new;
     return $j->jsonToObj( $r->content() );
